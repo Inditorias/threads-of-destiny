@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "destiny",
+	"version": "${version}",
+	"name": "Threads of Destiny",
+	"description": "Unlock the powers of the Light and Darkness from the Destiny franchise and weave a new Destiny",
+	"authors": [
+		"Inditorias"
+	],
+	"contact": {
+		"homepage": "TODO: WIKI",
+		"sources": "TODO: GITHUB",
+		"discord": "TODO: DISCORD"
+	},
+	"license": "MIT",
+	"icon": "assets/destiny/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+          "inditorias.destiny.DestinyMod"
+		],
+		"client": [
+          "inditorias.destiny.DestinyModClient"
+		],
+		"fabric-datagen": [
+          "inditorias.destiny.DestinyModDataGenerator"
+		]
+	},
+	"mixins": [
+		"destiny.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.21",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
