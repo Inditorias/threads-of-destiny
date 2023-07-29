@@ -1,0 +1,31 @@
+{
+  "effect.destiny.solar_restoration": "Solar Restoration",
+  "effect.destiny.solar_cure": "Solar Cure",
+  "effect.destiny.solar_radiant": "Solar Radiant",
+  "effect.destiny.solar_scorch": "Solar Scorch",
+  "effect.destiny.solar_ignition": "Solar Ignition",
+
+  "effect.destiny.arc_amplified": "Arc Amplified",
+  "effect.destiny.arc_blind": "Arc Blind",
+  "effect.destiny.arc_jolt": "Arc Jolt",
+  "effect.destiny.arc_speedboost": "Arc Speedboost",
+
+  "effect.destiny.stasis_slow": "Stasis Slow",
+  "effect.destiny.stasis_freeze": "Stasis Freeze",
+  "effect.destiny.stasis_shatter": "Stasis Shatter",
+  "effect.destiny.stasis_shard_overshield": "Stasis Shard Overshield",
+
+  "effect.destiny.strand_sever": "Strand Sever",
+  "effect.destiny.strand_suspend": "Strand Suspend",
+  "effect.destiny.strand_unravel": "Strand Unravel",
+  "effect.destiny.strand_unraveling_rounds": "Strand Unraveling Rounds",
+  "effect.destiny.strand_woven_mail": "Strand Woven Mail",
+
+  "effect.destiny.void_devour": "Void Devour",
+  "effect.destiny.void_invisibility": "Void Invisibility",
+  "effect.destiny.void_overshield": "Void Overshield",
+  "effect.destiny.void_suppressed": "Void Suppressed",
+  "effect.destiny.void_volatile": "Void Volatile",
+  "effect.destiny.void_volatile_rounds": "Void Volatile Rounds",
+  "effect.destiny.void_weaken": "Void Weaken"
+}
