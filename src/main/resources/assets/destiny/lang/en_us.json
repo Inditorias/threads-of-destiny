@@ -27,5 +27,54 @@
   "effect.destiny.void_suppressed": "Void Suppressed",
   "effect.destiny.void_volatile": "Void Volatile",
   "effect.destiny.void_volatile_rounds": "Void Volatile Rounds",
-  "effect.destiny.void_weaken": "Void Weaken"
+  "effect.destiny.void_weaken": "Void Weaken",
+
+  "text.autoconfig.destiny.title": "Threads of Destiny Configuration",
+
+  "text.autoconfig.destiny.option.solarConfig" : "Solar Effects",
+  "text.autoconfig.destiny.option.solarConfig.SOLAR_CURE_AMOUNT" : "Solar Cure Health per Stack",
+  "text.autoconfig.destiny.option.solarConfig.SCORCH_DAMAGE" : "Solar Scorch Damage Per Stack",
+  "text.autoconfig.destiny.option.solarConfig.SCORCH_BASE" : "Solar Scorch Damage Base",
+  "text.autoconfig.destiny.option.solarConfig.SCORCH_DAMAGE_TIME" : "Solar Scorch Damage Delay",
+  "text.autoconfig.destiny.option.solarConfig.SCORCH_FALL_TIME" : "Solar Scorch Fall Off Start",
+  "text.autoconfig.destiny.option.solarConfig.SCORCH_REMOVE_PER_TIME" : "Solar Scorch Fall Off Amount",
+  "text.autoconfig.destiny.option.solarConfig.SCORCH_REMOVE_TIME" : "Solar Scorch Fall Off Delay",
+  "text.autoconfig.destiny.option.solarConfig.RESTORATION_I" : "Solar Restoration I Health Per Second",
+  "text.autoconfig.destiny.option.solarConfig.RESTORATION_II" : "Solar Restoration II Health Per Second",
+  "text.autoconfig.destiny.option.solarConfig.RADIANT_MULTIPLIER" : "Solar Radiant Damage Increase",
+  "text.autoconfig.destiny.option.solarConfig.IGNITION_RADIUS" : "Solar Ignition Visual Range",
+  "text.autoconfig.destiny.option.solarConfig.IGNITION_DAMAGE_MAX" : "Solar Ignition Max Damage",
+  "text.autoconfig.destiny.option.solarConfig.IGNITION_DAMAGE_MIN" : "Solar Ignition Min Damage",
+  "text.autoconfig.destiny.option.solarConfig.IGNITION_DAMAGE_RANGE" : "Solar Ignition Damage Range",
+
+  "text.autoconfig.destiny.option.arcConfig" : "Arc Effects",
+
+  "text.autoconfig.destiny.option.stasisConfig" : "Stasis Effects",
+
+  "text.autoconfig.destiny.option.strandConfig" : "Strand Effects",
+
+  "text.autoconfig.destiny.option.voidConfig" : "Void Effects",
+
+  "key.ability.1": "Activate Ability 1",
+  "key.ability.2": "Activate Ability 2",
+  "key.ability.3": "Activate Ability 3",
+  "key.super": "Activate Super ",
+
+  "death.attack.solar": "%1$s burnt from Solar energy",
+  "death.attack.arc": "%1$s was shocked by Arc energy",
+  "death.attack.void": "%1$s fell to Void energy",
+  "death.attack.stasis": "%1$s shattered",
+  "death.attack.strand": "%1$s is unwoven from this world",
+
+  "death.attack.solar.player": "%1$s was burnt from Solar energy by %2$s",
+  "death.attack.arc.player": "%2$s shocked %1$s with Arc energy",
+  "death.attack.void.player": "%1$s fell to Void energy of %2$s",
+  "death.attack.stasis.player": "%2$s shattered %1$s",
+  "death.attack.strand.player": "%2$s has unwoven %1$s from this world",
+
+  "death.attack.solar.item": "%1$s was burnt from Solar energy by %2$s using %3$s",
+  "death.attack.arc.item": "%2$s shocked %1$s with Arc energy from %3$s",
+  "death.attack.void.item": "%1$s fell to Void energy of %2$s using %3$s",
+  "death.attack.stasis.item": "%2$s shattered %1$s with %3$s",
+  "death.attack.strand.item": "%2$s used %3$s to unweave %1$s from this world"
 }

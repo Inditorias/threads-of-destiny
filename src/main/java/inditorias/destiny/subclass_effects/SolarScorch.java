@@ -1,5 +1,7 @@
 package inditorias.destiny.subclass_effects;
 
+import inditorias.destiny.config.DestinyConfig;
+import inditorias.destiny.registries.DestinyDamageSoures;
 import inditorias.destiny.registries.DestinyEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
@@ -8,20 +10,15 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.effect.StatusEffectInstance;
 
 public class SolarScorch extends StatusEffect {
-    final public static float SCORCH_DAMAGE = 0.0195f;
-    final public static float SCORCH_BASE = 0.3f;
-    final public static float SCORCH_DAMAGE_TIME = 0.56f;
-    final public static float SCORCH_FALL_TIME = 4.5f;
-    final public static float SCORCH_REMOVE_PER_TIME = 5.67f;
-    final public static float SCORCH_REMOVE_TIME = 0.56f;
+
     protected boolean fixed;
     public static int SCORCH_DURATION(int amplifier){
-        return (int) ((SCORCH_FALL_TIME*20) + ((amplifier/SCORCH_REMOVE_PER_TIME)*SCORCH_REMOVE_TIME*20));
+        return (int) ((DestinyConfig.getSolarScorchFallTime()*20) + ((amplifier/DestinyConfig.getSolarScorchRemovePerTime())*DestinyConfig.getSolarScorchRemoveTime()*20));
     }
 
     public static int AMPLIFICATION_LEVEL(int duration){
         //assumes the SCORCH_FALL_TIME has gone by
-        return (int) ((duration*SCORCH_REMOVE_PER_TIME)/(20*SCORCH_REMOVE_TIME));
+        return (int) ((duration*DestinyConfig.getSolarScorchRemovePerTime())/(20*DestinyConfig.getSolarScorchRemoveTime()));
     }
     public SolarScorch(StatusEffectCategory category, int color) {
         super(category, color);
@@ -43,8 +40,8 @@ public class SolarScorch extends StatusEffect {
             duration = SCORCH_DURATION(amplifier);
         }
         //Check to see if its time to damage
-        if(duration % (int)(SCORCH_DAMAGE_TIME * 20) == 0){
-            entity.damage(entity.getDamageSources().onFire(), SCORCH_BASE + (SCORCH_DAMAGE * amplifier));
+        if(duration % (int)(DestinyConfig.getSolarScorchDamageTime() * 20) == 0){
+            entity.damage(DestinyDamageSoures.solarDamage, DestinyConfig.getSolarScorchBase() + (DestinyConfig.getSolarScorchDamage() * amplifier));
         }
 
         if(amplifier > AMPLIFICATION_LEVEL(duration)) {

@@ -1,5 +1,6 @@
 package inditorias.destiny.subclass_effects;
 
+import inditorias.destiny.config.DestinyConfig;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.InstantStatusEffect;
@@ -13,7 +14,7 @@ public class SolarCure extends InstantStatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        entity.heal(6f*amplifier);
+        entity.heal(DestinyConfig.getSolarCureAmount()*amplifier);
     }
 
     @Override

@@ -8,7 +8,7 @@ public class VoidWeaken extends StatusEffect {
         super(category, color);
     }
 
-    public static float ModifyDamage(float amount) {
-        return amount * 1.15f;
+    public static float ModifyDamage(float amount, int amplifier) {
+        return amount * 1.15f * amplifier;
     }
 }

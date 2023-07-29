@@ -9,7 +9,7 @@
 	],
 	"contact": {
 		"homepage": "TODO: WIKI",
-		"sources": "TODO: GITHUB",
+		"sources": "https://github.com/Inditorias/threads-of-destiny",
 		"discord": "TODO: DISCORD"
 	},
 	"license": "MIT",
@@ -24,6 +24,9 @@
 		],
 		"fabric-datagen": [
           "inditorias.destiny.DestinyModDataGenerator"
+		],
+		"modmenu": [
+			"inditorias.destiny.config.ModMenuIntegration"
 		]
 	},
 	"mixins": [
