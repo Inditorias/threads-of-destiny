@@ -7,4 +7,5 @@ public class StasisShardOvershield extends StatusEffect {
     public StasisShardOvershield(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: StasisShardOvershield
 }

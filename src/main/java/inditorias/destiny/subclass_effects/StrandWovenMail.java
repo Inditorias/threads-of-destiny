@@ -7,4 +7,5 @@ public class StrandWovenMail extends StatusEffect {
     public StrandWovenMail(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: StrandWovenMail
 }

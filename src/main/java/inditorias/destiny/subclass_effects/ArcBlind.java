@@ -7,4 +7,5 @@ public class ArcBlind extends StatusEffect {
     public ArcBlind(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: ArcBlind
 }

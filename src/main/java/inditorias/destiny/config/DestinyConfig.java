@@ -20,8 +20,13 @@ public class DestinyConfig implements ConfigData {
     StrandConfig strandConfig = new StrandConfig();
     @ConfigEntry.Gui.CollapsibleObject
     VoidConfig voidConfig = new VoidConfig();
-    public static class ArcConfig{
 
+
+
+    public static class ArcConfig{
+        static float JOLT_TRIGGER = 12f;
+        static float JOLT_DAMAGE = 17f;
+        static float JOLT_RANGE = 8f;
     }
     static class SolarConfig{
         static float SOLAR_CURE_AMOUNT = 6f;
@@ -34,19 +39,32 @@ public class DestinyConfig implements ConfigData {
         static float SCORCH_REMOVE_PER_TIME = 5.67f;
         static float SCORCH_REMOVE_TIME = 0.56f;
         static float RADIANT_MULTIPLIER = 0.25f;
-        static float IGNITION_RADIUS = 5f;
+        static float IGNITION_RADIUS = 3f;
         static float IGNITION_DAMAGE_MAX = 25f;
-        static float IGNITION_DAMAGE_MIN = 12f;
+        static float IGNITION_DAMAGE_MIN = 6f;
         static float IGNITION_DAMAGE_RANGE = 5f;
+        static float IGNITION_FIRE_RANGE = 5f;
+        static float IGNITION_FIRE_CHANCE = 0.1f;
     }
     static class VoidConfig{
-
+        static float VOLATILE_DAMAGE_MAX = 16f;
+        static float VOLATILE_DAMAGE_MIN = 16f;
+        static float VOLATILE_TRIGGER = 19f;
+        static float VOLATILE_RANGE = 7f;
     }
     static class StasisConfig{
+        static float SHATTER_MAX_DAMAGE = 20f;
+        static float SHATTER_MIN_DAMAGE = 20f;
+        static float SHATTER_TRIGGER = 20f;
+        static float SHATTER_RANGE = 3f;
 
     }
     static class StrandConfig{
-
+        static float UNRAVEL_DURATION = 9f;
+        static float UNRAVEL_DAMAGE_MAX = 2.9f;
+        static float UNRAVEL_DAMAGE_MIN = 2.9f;
+        static float UNRAVEL_TRIGGER = 4;
+        static float UNRAVEL_RANGE = 2f;
     }
     public static float getSolarCureAmount(){return SolarConfig.SOLAR_CURE_AMOUNT;}
     public static float getSolarScorchDamage(){return SolarConfig.SCORCH_DAMAGE;}
@@ -62,4 +80,26 @@ public class DestinyConfig implements ConfigData {
     public static float getIgnitionMaxDamage(){return SolarConfig.IGNITION_DAMAGE_MAX;}
     public static float getIgnitionMinDamage(){return SolarConfig.IGNITION_DAMAGE_MIN;}
     public static float getIgnitionDamageRange(){return SolarConfig.IGNITION_DAMAGE_RANGE;}
+    public static float getIgnitionFireRange() { return SolarConfig.IGNITION_FIRE_RANGE;}
+    public static float getIgnitionFireChance(){return SolarConfig.IGNITION_FIRE_CHANCE;}
+
+    public static float getJoltTrigger(){return ArcConfig.JOLT_TRIGGER;}
+    public static float getJoltDamage(){return ArcConfig.JOLT_DAMAGE;}
+    public static float getJoltRange(){return ArcConfig.JOLT_RANGE;}
+
+    public static float getShatterTrigger() {return StasisConfig.SHATTER_TRIGGER; }
+    public static float getShatterMaxDamage() {return StasisConfig.SHATTER_MAX_DAMAGE; }
+    public static float getShatterMinDamage() {return StasisConfig.SHATTER_MIN_DAMAGE; }
+    public static float getShatterRange() {return StasisConfig.SHATTER_RANGE; }
+
+    public static float getVolatileTrigger() {return VoidConfig.VOLATILE_TRIGGER; }
+    public static float getVolatileMaxDamage() {return VoidConfig.VOLATILE_DAMAGE_MAX; }
+    public static float getVolatileMinDamage() {return VoidConfig.VOLATILE_DAMAGE_MIN; }
+    public static float getVolatileRange() {return VoidConfig.VOLATILE_RANGE; }
+
+    public static float getUnravelTrigger() {return StrandConfig.UNRAVEL_TRIGGER; }
+    public static float getUnravelMaxDamage() {return StrandConfig.UNRAVEL_DAMAGE_MAX; }
+    public static float getUnravelMinDamage() {return StrandConfig.UNRAVEL_DAMAGE_MIN; }
+    public static float getUnravelRange() {return StrandConfig.UNRAVEL_RANGE; }
+    public static float getUnravelDuration(){return StrandConfig.UNRAVEL_DURATION;}
 }

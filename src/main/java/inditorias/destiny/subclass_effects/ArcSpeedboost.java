@@ -7,4 +7,5 @@ public class ArcSpeedboost extends StatusEffect {
     public ArcSpeedboost(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: ArcSpeedboost
 }

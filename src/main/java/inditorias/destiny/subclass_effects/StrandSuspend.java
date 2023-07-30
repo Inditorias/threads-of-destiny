@@ -7,4 +7,5 @@ public class StrandSuspend extends StatusEffect {
     public StrandSuspend(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: StrandSuspend
 }

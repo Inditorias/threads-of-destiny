@@ -7,4 +7,5 @@ public class StasisSlow extends StatusEffect {
     public StasisSlow(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: StasisSlow
 }

@@ -7,4 +7,5 @@ public class VoidInvisibility extends StatusEffect {
     public VoidInvisibility(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: VoidInvisibility
 }

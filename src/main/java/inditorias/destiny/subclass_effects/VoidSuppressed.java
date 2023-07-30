@@ -7,4 +7,5 @@ public class VoidSuppressed extends StatusEffect {
     public VoidSuppressed(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: VoidSuppressed
 }

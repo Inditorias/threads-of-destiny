@@ -7,4 +7,5 @@ public class VoidDevour extends StatusEffect {
     public VoidDevour(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: VoidDevour
 }

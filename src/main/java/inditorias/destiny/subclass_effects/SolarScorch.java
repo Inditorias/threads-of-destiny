@@ -12,6 +12,7 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 public class SolarScorch extends StatusEffect {
 
     protected boolean fixed;
+    protected int prevAmp;
     public static int SCORCH_DURATION(int amplifier){
         return (int) ((DestinyConfig.getSolarScorchFallTime()*20) + ((amplifier/DestinyConfig.getSolarScorchRemovePerTime())*DestinyConfig.getSolarScorchRemoveTime()*20));
     }

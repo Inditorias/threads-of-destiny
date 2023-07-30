@@ -7,4 +7,5 @@ public class VoidVolatileRounds extends StatusEffect {
     public VoidVolatileRounds(StatusEffectCategory category, int color) {
         super(category, color);
     }
+    //TODO: VoidVolatileRounds
 }

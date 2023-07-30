@@ -46,6 +46,7 @@
   "text.autoconfig.destiny.option.solarConfig.IGNITION_DAMAGE_MAX" : "Solar Ignition Max Damage",
   "text.autoconfig.destiny.option.solarConfig.IGNITION_DAMAGE_MIN" : "Solar Ignition Min Damage",
   "text.autoconfig.destiny.option.solarConfig.IGNITION_DAMAGE_RANGE" : "Solar Ignition Damage Range",
+  "text.autoconfig.destiny.option.solarConfig.IGNITION_FIRE_RANGE" : "Solar Ignition Fire Range",
 
   "text.autoconfig.destiny.option.arcConfig" : "Arc Effects",
 
