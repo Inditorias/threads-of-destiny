@@ -65,6 +65,9 @@ public class DestinyConfig implements ConfigData {
         static float UNRAVEL_DAMAGE_MIN = 2.9f;
         static float UNRAVEL_TRIGGER = 4;
         static float UNRAVEL_RANGE = 2f;
+        static float SUSPEND_HEIGHT = 4f;
+        static float SUSPEND_MAX_VELOCITY = 0.01f;
+        static float SUSPEND_LIFT = 1.8f;
     }
     public static float getSolarCureAmount(){return SolarConfig.SOLAR_CURE_AMOUNT;}
     public static float getSolarScorchDamage(){return SolarConfig.SCORCH_DAMAGE;}
@@ -102,4 +105,7 @@ public class DestinyConfig implements ConfigData {
     public static float getUnravelMinDamage() {return StrandConfig.UNRAVEL_DAMAGE_MIN; }
     public static float getUnravelRange() {return StrandConfig.UNRAVEL_RANGE; }
     public static float getUnravelDuration(){return StrandConfig.UNRAVEL_DURATION;}
+    public static float getStrandSuspendHeight(){return StrandConfig.SUSPEND_HEIGHT;}
+    public static float getStrandSuspendMaxVelocity(){return StrandConfig.SUSPEND_MAX_VELOCITY;}
+    public static float getStrandSuspendLift(){return StrandConfig.SUSPEND_LIFT;}
 }
