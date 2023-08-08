@@ -5,7 +5,7 @@
   "mixins": [
     "DamageMixin",
     "DamageSourceMixin",
-    "ExampleMixin"
+    "LivingEntityDataSaverMixin"
   ],
   "injectors": {
     "defaultRequire": 1

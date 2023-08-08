@@ -1,6 +1,8 @@
 package inditorias.destiny.subclass_effects;
 
 import inditorias.destiny.config.DestinyConfig;
+import inditorias.destiny.lib.EffectData;
+import inditorias.destiny.lib.IEntityDataSaver;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
@@ -8,15 +10,14 @@ import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.util.math.Vec3d;
 
 public class StrandSuspend extends StatusEffect {
-    private Vec3d position;
     public StrandSuspend(StatusEffectCategory category, int color) {
         super(category, color);
     }
 
     @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        position = entity.getPos();
-        entity.setPos(position.getX(), position.getY() + DestinyConfig.getStrandSuspendHeight(), position.getZ());
+        EffectData.setSuspendPos((IEntityDataSaver) entity, entity.getPos());
+        entity.setPos(entity.getPos().getX(), entity.getPos().getY() + DestinyConfig.getStrandSuspendHeight(), entity.getPos().getZ());
         super.onApplied(entity, attributes, amplifier);
     }
 
@@ -27,6 +28,8 @@ public class StrandSuspend extends StatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
+        Vec3d position = EffectData.getSuspendPos((IEntityDataSaver) entity);
+        //TODO: sync
         double x = entity.getVelocity().getX();
         double y = 0;
         double maxY = position.getY() + DestinyConfig.getStrandSuspendHeight();

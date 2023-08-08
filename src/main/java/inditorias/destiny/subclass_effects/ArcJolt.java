@@ -2,34 +2,41 @@ package inditorias.destiny.subclass_effects;
 
 import inditorias.destiny.config.DestinyConfig;
 import inditorias.destiny.lib.DestinyExplode;
+import inditorias.destiny.lib.EffectData;
+import inditorias.destiny.lib.IEntityDataSaver;
 import inditorias.destiny.registries.DestinyDamageSoures;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.World;
 
 public class ArcJolt extends StatusEffect {
-    private float damageTaken;
     public ArcJolt(StatusEffectCategory category, int color) {
         super(category, color);
     }
-    public void addDamage(float damage){
-        damageTaken += damage;
-    }
+
     @Override
     public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
-        damageTaken = 0;
+        EffectData.setJoltDamage((IEntityDataSaver) entity, 0);
         super.onApplied(entity, attributes, amplifier);
     }
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
-        return damageTaken > DestinyConfig.getJoltTrigger();
+        return true;
     }
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        DestinyExplode.ExplodeDamage(entity.getWorld(), entity.getPos(), DestinyConfig.getJoltRange(), DestinyConfig.getJoltDamage(),DestinyConfig.getJoltDamage(), DestinyDamageSoures.arcDamage);
-        damageTaken = 0;
+        if(EffectData.getJoltDamage((IEntityDataSaver) entity) > DestinyConfig.getJoltTrigger()){
+            joltExplode(entity.getWorld(), entity.getPos());
+            EffectData.setJoltDamage((IEntityDataSaver) entity, 0);
+        }
+    }
+
+    public static void joltExplode(World world, Vec3d pos){
+        DestinyExplode.ExplodeDamage(world, pos, DestinyConfig.getJoltRange(), DestinyConfig.getJoltDamage(), DestinyConfig.getJoltDamage(), DestinyDamageSoures.arcDamage);
     }
 }

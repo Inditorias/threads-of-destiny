@@ -1,12 +1,19 @@
 package inditorias.destiny.mixin;
 
+import inditorias.destiny.config.DestinyConfig;
+import inditorias.destiny.lib.EffectData;
+import inditorias.destiny.lib.IEntityDataSaver;
 import inditorias.destiny.registries.DestinyEffects;
-import inditorias.destiny.subclass_effects.*;
-import net.minecraft.client.MinecraftClient;
+import inditorias.destiny.subclass_effects.ArcJolt;
+import inditorias.destiny.subclass_effects.StasisShatter;
+import inditorias.destiny.subclass_effects.StrandUnravel;
+import inditorias.destiny.subclass_effects.VoidVolatile;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -23,20 +30,31 @@ public abstract class DamageMixin {
     @Shadow public abstract StatusEffectInstance getStatusEffect(StatusEffect effect);
 
 
+    @Shadow public abstract boolean removeStatusEffect(StatusEffect type);
+
+    @Shadow public abstract boolean addStatusEffect(StatusEffectInstance effect);
+
+    @Shadow public abstract boolean damage(DamageSource source, float amount);
+
+    @Shadow protected abstract void applyMovementEffects(BlockPos pos);
+
     @Inject(method="damage", at = @At(value = "TAIL"))
     private void recordDamage(DamageSource source, float amount, @NotNull CallbackInfoReturnable<Boolean> cir){
         if(cir.getReturnValue()){
             if(hasStatusEffect(DestinyEffects.STASIS_FREEZE)){
-                ((StasisFreeze) getStatusEffect(DestinyEffects.STASIS_FREEZE).getEffectType()).addDamage(amount);
+                EffectData.addFreezeDamage((IEntityDataSaver) this, amount);
             }
             if(hasStatusEffect(DestinyEffects.ARC_JOLT)){
-                ((ArcJolt) getStatusEffect(DestinyEffects.ARC_JOLT).getEffectType()).addDamage(amount);
+                EffectData.addJoltDamage((IEntityDataSaver) this, amount);
             }
             if(hasStatusEffect(DestinyEffects.STRAND_UNRAVEL)){
-                ((StrandUnravel) getStatusEffect(DestinyEffects.STRAND_UNRAVEL).getEffectType()).addDamage(amount);
+                float damage = amount + EffectData.getUnravelDamage((IEntityDataSaver) this);
+                removeStatusEffect(DestinyEffects.STRAND_UNRAVEL);
+                addStatusEffect(new StatusEffectInstance(DestinyEffects.STRAND_UNRAVEL, (int)(DestinyConfig.getUnravelDuration()*20), 1));
+                EffectData.setUnravelDamage((IEntityDataSaver) this, damage);
             }
             if(hasStatusEffect(DestinyEffects.VOID_VOLATILE)){
-                ((VoidVolatile) getStatusEffect(DestinyEffects.VOID_VOLATILE).getEffectType()).addDamage(amount);
+                EffectData.addVolatileDamage((IEntityDataSaver) this, amount);
             }
         }
     }
@@ -44,11 +62,28 @@ public abstract class DamageMixin {
     @Inject(method = "onDeath", at = @At(value = "TAIL"))
     private void VolatileDeath(DamageSource damageSource, CallbackInfo ci){
         if(damageSource == null)return;
+        World world = null;
+        if(damageSource.getSource() != null){
+            if(!damageSource.getSource().getWorld().isClient()){
+                world = damageSource.getSource().getWorld();
+            }else if(damageSource.getAttacker() != null){
+                if(!damageSource.getAttacker().getWorld().isClient()){
+                    world = damageSource.getAttacker().getWorld();
+                }
+            }
+        }
+        if(world == null)return;
         if(hasStatusEffect(DestinyEffects.VOID_VOLATILE)){
-            VoidVolatile.explodeVolatile(MinecraftClient.getInstance().world, damageSource.getPosition());
+            VoidVolatile.explodeVolatile(world, damageSource.getPosition());
         }
         if(hasStatusEffect(DestinyEffects.STASIS_FREEZE)){
-            StasisShatter.shatter(MinecraftClient.getInstance().world, damageSource.getPosition());
+            StasisShatter.shatter(world, damageSource.getPosition());
+        }
+        if(hasStatusEffect(DestinyEffects.ARC_JOLT)){
+            ArcJolt.joltExplode(world, damageSource.getPosition());
+        }
+        if(hasStatusEffect(DestinyEffects.STRAND_UNRAVEL)){
+            StrandUnravel.unravelExplode(world, damageSource.getPosition());
         }
     }
 

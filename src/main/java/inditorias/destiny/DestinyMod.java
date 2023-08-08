@@ -2,6 +2,7 @@ package inditorias.destiny;
 
 import inditorias.destiny.config.DestinyConfig;
 import inditorias.destiny.registries.DestinyEffects;
+import inditorias.destiny.registries.DestinyEnchantments;
 import inditorias.destiny.registries.DestinyKeybinds;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
@@ -18,5 +19,6 @@ public class DestinyMod implements ModInitializer {
 		AutoConfig.register(DestinyConfig.class, GsonConfigSerializer::new);
 		DestinyEffects.registerEffects();
 		DestinyKeybinds.registerKeybinds();
+		DestinyEnchantments.registerEnchantments();
 	}
 }

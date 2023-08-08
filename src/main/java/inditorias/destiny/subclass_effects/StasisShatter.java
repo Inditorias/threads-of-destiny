@@ -15,19 +15,16 @@ public class StasisShatter extends InstantStatusEffect {
     public StasisShatter(StatusEffectCategory category, int color) {
         super(category, color);
     }
-    private void shatter(LivingEntity entity){
-        DestinyExplode.ExplodeDamage(entity.getWorld(), entity.getPos(), DestinyConfig.getShatterRange(), DestinyConfig.getShatterMinDamage(), DestinyConfig.getShatterMaxDamage(), DestinyDamageSoures.stasisDamage);
-    }
     public static void shatter(World world, Vec3d pos){
         DestinyExplode.ExplodeDamage(world, pos, DestinyConfig.getShatterRange(), DestinyConfig.getShatterMinDamage(), DestinyConfig.getShatterMaxDamage(), DestinyDamageSoures.stasisDamage);
     }
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        shatter(entity);
+        shatter(entity.getWorld(), entity.getPos());
     }
 
     @Override
     public void applyInstantEffect(@Nullable Entity source, @Nullable Entity attacker, LivingEntity target, int amplifier, double proximity) {
-        shatter(target);
+        shatter(target.getWorld(), target.getPos());
     }
 }

@@ -15,11 +15,15 @@ import java.util.ArrayList;
 
 public class DestinyExplode {
     public static void ExplodeDamage(World world, Vec3d source, float range, float minDamage, float maxDamage, DamageSource damageSource){
-        ArrayList<LivingEntity> entities = new ArrayList<>(world.getEntitiesByClass(LivingEntity.class,
-                new Box(source.getX() + range, source.getY() + range, source.getZ() + range, source.getX() - range, source.getY() - range, source.getZ() - range), Entity::isLiving));
-        for(LivingEntity e : entities){
-            if(e.getPos().distanceTo(source) > range)continue;
-            e.damage(damageSource,(float) (minDamage+((e.getPos().distanceTo(source)-range)/range*(maxDamage-minDamage))));
+        try {
+            ArrayList<LivingEntity> entities = new ArrayList<>(world.getEntitiesByClass(LivingEntity.class,
+                    new Box(source.getX() + range, source.getY() + range, source.getZ() + range, source.getX() - range, source.getY() - range, source.getZ() - range), Entity::isLiving));
+            for (LivingEntity e : entities) {
+                if (e.getPos().distanceTo(source) > range) continue;
+                e.damage(damageSource, (float) (minDamage + ((e.getPos().distanceTo(source) - range) / range * (maxDamage - minDamage))));
+            }
+        }catch (Exception ignored){
+
         }
     }
 

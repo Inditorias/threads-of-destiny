@@ -22,7 +22,6 @@ public class DestinyConfig implements ConfigData {
     VoidConfig voidConfig = new VoidConfig();
 
 
-
     public static class ArcConfig{
         static float JOLT_TRIGGER = 12f;
         static float JOLT_DAMAGE = 17f;
@@ -51,6 +50,7 @@ public class DestinyConfig implements ConfigData {
         static float VOLATILE_DAMAGE_MIN = 16f;
         static float VOLATILE_TRIGGER = 19f;
         static float VOLATILE_RANGE = 7f;
+        static float VOLATILE_DURATION = 6f;
     }
     static class StasisConfig{
         static float SHATTER_MAX_DAMAGE = 20f;
@@ -99,6 +99,7 @@ public class DestinyConfig implements ConfigData {
     public static float getVolatileMaxDamage() {return VoidConfig.VOLATILE_DAMAGE_MAX; }
     public static float getVolatileMinDamage() {return VoidConfig.VOLATILE_DAMAGE_MIN; }
     public static float getVolatileRange() {return VoidConfig.VOLATILE_RANGE; }
+    public static float getVolatileDuration(){return VoidConfig.VOLATILE_DURATION;}
 
     public static float getUnravelTrigger() {return StrandConfig.UNRAVEL_TRIGGER; }
     public static float getUnravelMaxDamage() {return StrandConfig.UNRAVEL_DAMAGE_MAX; }
