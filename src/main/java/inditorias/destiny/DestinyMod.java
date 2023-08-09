@@ -1,6 +1,7 @@
 package inditorias.destiny;
 
 import inditorias.destiny.config.DestinyConfig;
+import inditorias.destiny.network.DestinyPackets;
 import inditorias.destiny.registries.DestinyEffects;
 import inditorias.destiny.registries.DestinyEnchantments;
 import inditorias.destiny.registries.DestinyKeybinds;
@@ -20,5 +21,6 @@ public class DestinyMod implements ModInitializer {
 		DestinyEffects.registerEffects();
 		DestinyKeybinds.registerKeybinds();
 		DestinyEnchantments.registerEnchantments();
+		DestinyPackets.registerC2SPackets();
 	}
 }

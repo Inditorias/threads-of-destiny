@@ -1,6 +1,11 @@
 package inditorias.destiny.lib;
 
+import inditorias.destiny.network.DestinyPackets;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Vec3d;
 
 public class EffectData {
@@ -72,6 +77,7 @@ public class EffectData {
         nbt.putFloat(FREEZE_POS_X, x);
         nbt.putFloat(FREEZE_POS_Y, y);
         nbt.putFloat(FREEZE_POS_Z, z);
+        if(entity instanceof ServerPlayerEntity) syncFreezePos(pos, (ServerPlayerEntity) entity);
         return pos;
     }
 
@@ -90,7 +96,23 @@ public class EffectData {
         nbt.putFloat(SUSPEND_POS_X, x);
         nbt.putFloat(SUSPEND_POS_Y, y);
         nbt.putFloat(SUSPEND_POS_Z, z);
+        if(entity instanceof ServerPlayerEntity) syncSuspendPos(pos, (ServerPlayerEntity) entity);
         return pos;
+    }
+
+    public static void syncSuspendPos(Vec3d pos, ServerPlayerEntity player){
+        PacketByteBuf buf = PacketByteBufs.create();
+        buf.writeFloat((float) pos.getX());
+        buf.writeFloat((float) pos.getY());
+        buf.writeFloat((float) pos.getZ());
+        ServerPlayNetworking.send(player, DestinyPackets.SUSPEND_SYNC_ID, buf);
+    }
+    public static void syncFreezePos(Vec3d pos, ServerPlayerEntity player){
+        PacketByteBuf buf = PacketByteBufs.create();
+        buf.writeFloat((float) pos.getX());
+        buf.writeFloat((float) pos.getY());
+        buf.writeFloat((float) pos.getZ());
+        ServerPlayNetworking.send(player, DestinyPackets.FREEZE_SYNC_ID, buf);
     }
 
 
