@@ -26,6 +26,12 @@ public class DestinyConfig implements ConfigData {
         static float JOLT_TRIGGER = 12f;
         static float JOLT_DAMAGE = 17f;
         static float JOLT_RANGE = 8f;
+        static float SPEEDBOOST_MOVEMENT_MODIFIER = 1.125f;
+        static float SPEEDBOOST_JUMP_MODIFIER = 1.25f;
+        static float SPEEDBOOST_FALLOFF = 2f;
+        static float AMPLIFIED_MOVEMENT_MODIFIER = 1.116f;
+        static float AMPLIFIED_JUMP_MODIFIER = 1.125f;
+        static float SPEEDBOOST_WARMUP = 2.5f;
     }
     static class SolarConfig{
         static float SOLAR_CURE_AMOUNT = 6f;
@@ -90,6 +96,12 @@ public class DestinyConfig implements ConfigData {
     public static float getJoltTrigger(){return ArcConfig.JOLT_TRIGGER;}
     public static float getJoltDamage(){return ArcConfig.JOLT_DAMAGE;}
     public static float getJoltRange(){return ArcConfig.JOLT_RANGE;}
+    public static float getSpeedboostMovementModifier(){return ArcConfig.SPEEDBOOST_MOVEMENT_MODIFIER;}
+    public static float getSpeedboostJumpModifier(){return ArcConfig.SPEEDBOOST_JUMP_MODIFIER;}
+    public static float getSpeedboostFalloff(){return ArcConfig.SPEEDBOOST_FALLOFF;}
+    public static float getSpeedboostWarmup(){return ArcConfig.SPEEDBOOST_WARMUP;}
+    public static float getAmplifiedMovementModifier(){return ArcConfig.AMPLIFIED_MOVEMENT_MODIFIER;}
+    public static float getAmplifiedJumpModifier(){return ArcConfig.AMPLIFIED_JUMP_MODIFIER;}
 
     public static float getShatterTrigger() {return StasisConfig.SHATTER_TRIGGER; }
     public static float getShatterMaxDamage() {return StasisConfig.SHATTER_MAX_DAMAGE; }

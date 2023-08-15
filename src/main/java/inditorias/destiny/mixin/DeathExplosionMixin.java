@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class DeathExplosionMixin {
 
     @Shadow public abstract boolean hasStatusEffect(StatusEffect effect);
-    @Inject(method = "onDeath", at = @At(value = "TAIL"))
+    @Inject(method = "onDeath", at = @At(value = "HEAD"))
     private void ExplosiveDeath(DamageSource damageSource, CallbackInfo ci){
         if(damageSource == null)return;
         World world = null;

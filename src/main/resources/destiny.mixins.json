@@ -7,6 +7,7 @@
     "DamageRecordMixin",
     "DamageSourceMixin",
     "DeathExplosionMixin",
+    "JumpVelocityMixin",
     "LivingEntityDataSaverMixin"
   ],
   "injectors": {

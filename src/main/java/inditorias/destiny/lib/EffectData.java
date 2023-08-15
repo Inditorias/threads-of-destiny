@@ -21,6 +21,7 @@ public class EffectData {
     public static final String UNRAVEL_DAMAGE = "unravel_damage";
     public static final String VOLATILE_DAMAGE = "volatile_damage";
     public static final String JOLT_DAMAGE = "jolt_damage";
+    public static final String AMPLIFIED_RUNNING = "amplified_running";
 
     public static float addUnravelDamage(IEntityDataSaver entity, float amount){
         NbtCompound nbt = entity.getPersistentData();
@@ -153,5 +154,27 @@ public class EffectData {
         NbtCompound nbt = entity.getPersistentData();
         nbt.putFloat(JOLT_DAMAGE, amount);
         return amount;
+    }
+
+    public static int getAmplifiedTicksRunning(IEntityDataSaver entity){
+        NbtCompound nbt = entity.getPersistentData();
+        return nbt.getInt(AMPLIFIED_RUNNING);
+    }
+    public static int setAmplifiedTicksRunning(IEntityDataSaver entity, int ticks){
+        NbtCompound nbt = entity.getPersistentData();
+        nbt.putInt(AMPLIFIED_RUNNING, ticks);
+        return ticks;
+    }
+    public static int resetAmplifiedTicksRunning(IEntityDataSaver entity){
+        NbtCompound nbt = entity.getPersistentData();
+        nbt.putInt(AMPLIFIED_RUNNING, 0);
+        return 0;
+    }
+    public static int incrementAmplifiedTicksRunning(IEntityDataSaver entity){
+        NbtCompound nbt = entity.getPersistentData();
+        int ticks = nbt.getInt(AMPLIFIED_RUNNING);
+        ticks++;
+        nbt.putInt(AMPLIFIED_RUNNING, ticks);
+        return ticks;
     }
 }
