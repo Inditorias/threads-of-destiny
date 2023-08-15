@@ -3,8 +3,10 @@
   "package": "inditorias.destiny.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "DamageMixin",
+    "DamageAdjustMixin",
+    "DamageRecordMixin",
     "DamageSourceMixin",
+    "DeathExplosionMixin",
     "LivingEntityDataSaverMixin"
   ],
   "injectors": {
