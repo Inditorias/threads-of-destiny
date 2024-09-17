@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "threads-of-destiny",
+	"version": "${version}",
+	"name": "Threads of Destiny",
+	"description": "Threads of Destiny is a mod that aims to port over features from the video game series Destiny into Minecraft",
+	"authors": [
+		"Inditorias"
+	],
+	"contact": {
+		"homepage": "TODO: WIKI",
+		"sources": "https://github.com/Inditorias/threads-of-destiny",
+		"discord": "TODO: DISCORD"
+	},
+	"license": "MIT",
+	"icon": "assets/threads-of-destiny/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.inditorias.threadsofdestiny.ThreadsOfDestiny"
+		],
+		"fabric-datagen": [
+			"net.inditorias.threadsofdestiny.ThreadsOfDestinyDataGenerator"
+		],
+		"client": ["net.inditorias.threadsofdestiny.ThreadsOfDestinyClient"]
+	},
+	"mixins": [
+		"threads-of-destiny.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.5",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
