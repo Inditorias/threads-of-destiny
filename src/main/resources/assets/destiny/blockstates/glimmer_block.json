@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "destiny:block/glimmer_block"
+    }
+  }
+}

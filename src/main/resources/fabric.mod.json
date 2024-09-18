@@ -13,7 +13,7 @@
 		"discord": "TODO: DISCORD"
 	},
 	"license": "MIT",
-	"icon": "assets/threads-of-destiny/icon.png",
+	"icon": "assets/destiny/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -25,7 +25,7 @@
 		"client": ["net.inditorias.threadsofdestiny.ThreadsOfDestinyClient"]
 	},
 	"mixins": [
-		"threads-of-destiny.mixins.json"
+		"destiny.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.16.5",
