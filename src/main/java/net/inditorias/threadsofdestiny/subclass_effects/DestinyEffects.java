@@ -6,6 +6,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 
 public class DestinyEffects {
@@ -14,10 +15,10 @@ public class DestinyEffects {
     public static final StatusEffect SOLAR_CURE = new SolarCure(StatusEffectCategory.BENEFICIAL, SubclassColors.SOLAR_COLOR);
 //    public static final StatusEffect SOLAR_RADIANT= new SolarRadiant(StatusEffectCategory.BENEFICIAL, SubclassColors.SOLAR_COLOR);
 //    public static final StatusEffect SOLAR_SCORCH= new SolarScorch(StatusEffectCategory.HARMFUL, SubclassColors.SOLAR_COLOR);
-//    public static final StatusEffect SOLAR_IGNITION= new SolarIgnition(StatusEffectCategory.HARMFUL, SubclassColors.SOLAR_COLOR);
+    public static final StatusEffect SOLAR_IGNITION= new SolarIgnition(StatusEffectCategory.HARMFUL, SubclassColors.SOLAR_COLOR);
 //    public static final StatusEffect ARC_AMPLIFIED = new ArcAmplified(StatusEffectCategory.BENEFICIAL, SubclassColors.ARC_COLOR);
 //    public static final StatusEffect ARC_BLIND = new ArcBlind(StatusEffectCategory.HARMFUL, SubclassColors.ARC_COLOR);
-//    public static final StatusEffect ARC_JOLT= new ArcJolt(StatusEffectCategory.HARMFUL, SubclassColors.ARC_COLOR);
+    public static final StatusEffect ARC_JOLT= new ArcJolt(StatusEffectCategory.HARMFUL, SubclassColors.ARC_COLOR);
 //    public static final StatusEffect ARC_SPEEDBOOST= new ArcSpeedboost(StatusEffectCategory.BENEFICIAL, SubclassColors.ARC_COLOR);
 //    public static final StatusEffect STASIS_FREEZE= new StasisFreeze(StatusEffectCategory.HARMFUL, SubclassColors.STASIS_COLOR);
 //    public static final StatusEffect STASIS_SHARD_OVERSHIELD= new StasisShardOvershield(StatusEffectCategory.BENEFICIAL, SubclassColors.STASIS_COLOR);
@@ -36,9 +37,10 @@ public class DestinyEffects {
 //    public static final StatusEffect VOID_WEAKEN= new VoidWeaken(StatusEffectCategory.HARMFUL, SubclassColors.VOID_COLOR);
 //    public static final StatusEffect VOID_INVISIBILITY = new VoidInvisibility(StatusEffectCategory.BENEFICIAL, SubclassColors.VOID_COLOR);
 
+    public  static RegistryEntry.Reference<StatusEffect> ARC_JOLT_REGISTRY;
 
-    private static void registerEffect(String name, StatusEffect effect){
-        Registry.register(Registries.STATUS_EFFECT, Identifier.of(ThreadsOfDestiny.MOD_ID,name),effect);
+    private static RegistryEntry.Reference<StatusEffect> registerEffect(String name, StatusEffect effect){
+        return  Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(ThreadsOfDestiny.MOD_ID,name),effect);
     }
 
     public static void registerEffects(){
@@ -47,10 +49,10 @@ public class DestinyEffects {
         registerEffect("solar_restoration",SOLAR_RESTORATION);
         //registerEffect("solar_radiant",SOLAR_RADIANT);
         //registerEffect("solar_scorch",SOLAR_SCORCH);
-        //registerEffect("solar_ignition",SOLAR_IGNITION);
+        registerEffect("solar_ignition",SOLAR_IGNITION);
         //registerEffect("arc_amplified",ARC_AMPLIFIED);
         //registerEffect("arc_blind",ARC_BLIND);
-        //registerEffect("arc_jolt",ARC_JOLT);
+        ARC_JOLT_REGISTRY = registerEffect("arc_jolt",ARC_JOLT);
         //registerEffect("arc_speedboost",ARC_SPEEDBOOST);
         //registerEffect("stasis_freeze",STASIS_FREEZE);
         //registerEffect("stasis_shard_overshield",STASIS_SHARD_OVERSHIELD);

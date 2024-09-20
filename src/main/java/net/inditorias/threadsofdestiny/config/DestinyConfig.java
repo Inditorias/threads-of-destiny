@@ -45,6 +45,7 @@ public class DestinyConfig {
         static float IGNITION_DAMAGE_RANGE = 5f;
         static float IGNITION_FIRE_RANGE = 5f;
         static float IGNITION_FIRE_CHANCE = 0.1f;
+        static float IGNITION_POWER = 1f;
     }
     static class VoidConfig{
         static float VOLATILE_DAMAGE_MAX = 16f;
@@ -81,12 +82,13 @@ public class DestinyConfig {
     public static float getSolarRestorationI(){return SolarConfig.RESTORATION_I;}
     public static float getSolarRestorationII(){return SolarConfig.RESTORATION_II;}
     public static float getSolarRadiantMultiplier(){return 1 + SolarConfig.RADIANT_MULTIPLIER;}
-    public static float getIgnitionRadius(){return SolarConfig.IGNITION_RADIUS;}
-    public static float getIgnitionMaxDamage(){return SolarConfig.IGNITION_DAMAGE_MAX;}
-    public static float getIgnitionMinDamage(){return SolarConfig.IGNITION_DAMAGE_MIN;}
-    public static float getIgnitionDamageRange(){return SolarConfig.IGNITION_DAMAGE_RANGE;}
-    public static float getIgnitionFireRange() { return SolarConfig.IGNITION_FIRE_RANGE;}
-    public static float getIgnitionFireChance(){return SolarConfig.IGNITION_FIRE_CHANCE;}
+    public static float getSolarIgnitionRadius(){return SolarConfig.IGNITION_RADIUS;}
+    public static float getSolarIgnitionMaxDamage(){return SolarConfig.IGNITION_DAMAGE_MAX;}
+    public static float getSolarIgnitionMinDamage(){return SolarConfig.IGNITION_DAMAGE_MIN;}
+    public static float getSolarIgnitionDamageRange(){return SolarConfig.IGNITION_DAMAGE_RANGE;}
+    public static float getSolarIgnitionFireRange() { return SolarConfig.IGNITION_FIRE_RANGE;}
+    public static float getSolarIgnitionFireChance(){return SolarConfig.IGNITION_FIRE_CHANCE;}
+    public static float getSolarIgnitionPower(){return SolarConfig.IGNITION_POWER;}
 
     public static float getJoltTrigger(){return ArcConfig.JOLT_TRIGGER;}
     public static float getJoltDamage(){return ArcConfig.JOLT_DAMAGE;}

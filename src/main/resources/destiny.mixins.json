@@ -3,7 +3,8 @@
 	"package": "net.inditorias.threadsofdestiny.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"EntityDataSaverMixin",
+		"DamageRecordMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
