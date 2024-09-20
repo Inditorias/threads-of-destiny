@@ -22,7 +22,7 @@ public abstract class DamageRecordMixin {
     @Inject(method="damage", at = @At(value = "TAIL"))
     private void recordDamage(DamageSource source, float amount, @NotNull CallbackInfoReturnable<Boolean> cir){
         if(cir.getReturnValue()){
-            if(this.hasStatusEffect(DestinyEffects.ARC_JOLT_REGISTRY)){
+            if(this.hasStatusEffect(DestinyEffects.ARC_JOLT_REGISTRY_ENTRY)){
                 EffectData.addJoltDamage((IEntityDataSaver) this, amount);
             }
         }

@@ -3,12 +3,9 @@ package net.inditorias.threadsofdestiny.subclass_effects;
 import net.inditorias.threadsofdestiny.config.DestinyConfig;
 import net.inditorias.threadsofdestiny.lib.EffectData;
 import net.inditorias.threadsofdestiny.lib.IEntityDataSaver;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
-import net.minecraft.text.Text;
 
 public class ArcJolt extends StatusEffect {
     public ArcJolt(StatusEffectCategory category, int color) {

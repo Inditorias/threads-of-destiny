@@ -37,7 +37,31 @@ public class DestinyEffects {
 //    public static final StatusEffect VOID_WEAKEN= new VoidWeaken(StatusEffectCategory.HARMFUL, SubclassColors.VOID_COLOR);
 //    public static final StatusEffect VOID_INVISIBILITY = new VoidInvisibility(StatusEffectCategory.BENEFICIAL, SubclassColors.VOID_COLOR);
 
-    public  static RegistryEntry.Reference<StatusEffect> ARC_JOLT_REGISTRY;
+    public static final RegistryEntry.Reference<StatusEffect> ARC_JOLT_REGISTRY_ENTRY = registerEffect("arc_jolt",ARC_JOLT);;
+    public static final RegistryEntry.Reference<StatusEffect> SOLAR_CURE_REGISTRY_ENTRY = registerEffect("solar_cure",SOLAR_CURE);
+    public static final RegistryEntry.Reference<StatusEffect> SOLAR_RESTORATION_REGISTRY_ENTRY = registerEffect("solar_restoration",SOLAR_RESTORATION);
+    //public static final RegistryEntry.Reference<StatusEffect> SOLAR_RADIANT_REGISTRY_ENTRY = registerEffect("solar_radiant",SOLAR_RADIANT);
+    //public static final RegistryEntry.Reference<StatusEffect> SOLAR_SCORCH_REGISTRY_ENTRY = registerEffect("solar_scorch",SOLAR_SCORCH);
+    public static final RegistryEntry.Reference<StatusEffect> SOLAR_IGNITION_REGISTRY_ENTRY = registerEffect("solar_ignition",SOLAR_IGNITION);
+    //public static final RegistryEntry.Reference<StatusEffect> ARC_AMPLIFIED_REGISTRY_ENTRY = registerEffect("arc_amplified",ARC_AMPLIFIED);
+    //public static final RegistryEntry.Reference<StatusEffect> ARC_BLIND_REGISTRY_ENTRY = registerEffect("arc_blind",ARC_BLIND);
+    //public static final RegistryEntry.Reference<StatusEffect> ARC_SPEEDBOOST_REGISTRY_ENTRY = registerEffect("arc_speedboost",ARC_SPEEDBOOST);
+    //public static final RegistryEntry.Reference<StatusEffect> STASIS_FREEZE_REGISTRY_ENTRY = registerEffect("stasis_freeze",STASIS_FREEZE);
+    //public static final RegistryEntry.Reference<StatusEffect> STASIS_SHARD_OVERSHIELD_REGISTRY_ENTRY = registerEffect("stasis_shard_overshield",STASIS_SHARD_OVERSHIELD);
+    //public static final RegistryEntry.Reference<StatusEffect> STASIS_SHATTER_REGISTRY_ENTRY = registerEffect("stasis_shatter",STASIS_SHATTER=);
+    //public static final RegistryEntry.Reference<StatusEffect> STASIS_SLOW_REGISTRY_ENTRY = registerEffect("stasis_slow",STASIS_SLOW);
+    //public static final RegistryEntry.Reference<StatusEffect> STRAND_SEVER_REGISTRY_ENTRY = registerEffect("strand_sever",STRAND_SEVER);
+    //public static final RegistryEntry.Reference<StatusEffect> STRAND_SUSPEND_REGISTRY_ENTRY = registerEffect("strand_suspend",STRAND_SUSPEND);
+    //public static final RegistryEntry.Reference<StatusEffect> STRAND_UNRAVEL_REGISTRY_ENTRY = registerEffect("strand_unravel",STRAND_UNRAVEL);
+    //public static final RegistryEntry.Reference<StatusEffect> STRAND_UNRAVELING_ROUNDS_REGISTRY_ENTRY = registerEffect("strand_unraveling_rounds",STRAND_UNRAVELING_ROUNDS);
+    //public static final RegistryEntry.Reference<StatusEffect> STRAND_WOVEN_MAIL_REGISTRY_ENTRY = registerEffect("strand_woven_mail",STRAND_WOVEN_MAIL);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_DEVOUR_REGISTRY_ENTRY = registerEffect("void_devour",VOID_DEVOUR);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_OVERSHIELD_REGISTRY_ENTRY = registerEffect("void_overshield",VOID_OVERSHIELD);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_SUPPRESSED_REGISTRY_ENTRY = registerEffect("void_supress",VOID_SUPPRESSED);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_VOLATILE_REGISTRY_ENTRY = registerEffect("void_volatile",VOID_VOLATILE);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_VOLATILE_ROUNDS_REGISTRY_ENTRY = registerEffect("void_volatile_rounds",VOID_VOLATILE_ROUNDS);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_WEAKEN_REGISTRY_ENTRY = registerEffect("void_weaken",VOID_WEAKEN);
+    //public static final RegistryEntry.Reference<StatusEffect> VOID_INVISIBILITY_REGISTRY_ENTRY = registerEffect("void_invisibility",VOID_INVISIBILITY);
 
     private static RegistryEntry.Reference<StatusEffect> registerEffect(String name, StatusEffect effect){
         return  Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(ThreadsOfDestiny.MOD_ID,name),effect);
@@ -45,30 +69,5 @@ public class DestinyEffects {
 
     public static void registerEffects(){
         ThreadsOfDestiny.LOGGER.info("Registering Effects for " + ThreadsOfDestiny.MOD_ID);
-        registerEffect("solar_cure",SOLAR_CURE);
-        registerEffect("solar_restoration",SOLAR_RESTORATION);
-        //registerEffect("solar_radiant",SOLAR_RADIANT);
-        //registerEffect("solar_scorch",SOLAR_SCORCH);
-        registerEffect("solar_ignition",SOLAR_IGNITION);
-        //registerEffect("arc_amplified",ARC_AMPLIFIED);
-        //registerEffect("arc_blind",ARC_BLIND);
-        ARC_JOLT_REGISTRY = registerEffect("arc_jolt",ARC_JOLT);
-        //registerEffect("arc_speedboost",ARC_SPEEDBOOST);
-        //registerEffect("stasis_freeze",STASIS_FREEZE);
-        //registerEffect("stasis_shard_overshield",STASIS_SHARD_OVERSHIELD);
-        //registerEffect("stasis_shatter",STASIS_SHATTER=);
-        //registerEffect("stasis_slow",STASIS_SLOW);
-        //registerEffect("strand_sever",STRAND_SEVER);
-        //registerEffect("strand_suspend",STRAND_SUSPEND);
-        //registerEffect("strand_unravel",STRAND_UNRAVEL);
-        //registerEffect("strand_unraveling_rounds",STRAND_UNRAVELING_ROUNDS);
-        //registerEffect("strand_woven_mail",STRAND_WOVEN_MAIL);
-        //registerEffect("void_devour",VOID_DEVOUR);
-        //registerEffect("void_overshield",VOID_OVERSHIELD);
-        //registerEffect("void_supress",VOID_SUPPRESSED);
-        //registerEffect("void_volatile",VOID_VOLATILE);
-        //registerEffect("void_volatile_rounds",VOID_VOLATILE_ROUNDS);
-        //registerEffect("void_weaken",VOID_WEAKEN);
-        //registerEffect("void_invisibility",VOID_INVISIBILITY);
     }
 }
